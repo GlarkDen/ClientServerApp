@@ -1,0 +1,35 @@
+﻿<Window x:Class="Client.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Client"
+        xmlns:viewmodels="clr-namespace:Client.ViewModels"
+        mc:Ignorable="d"
+        Title="Клиент" Height="408" Width="800" FontSize="14">
+
+    <Window.DataContext>
+        <viewmodels:ViewModel />
+    </Window.DataContext>
+
+    <Grid>
+        <Button Content="Отправить файлы" Command="{Binding StartClient}" HorizontalAlignment="Left" Margin="26,18,0,0" VerticalAlignment="Top" Height="67" Width="155"/>
+        <Label Content="{Binding Text}" HorizontalAlignment="Left" FontSize="15" Margin="26,226,0,0" VerticalAlignment="Top" Height="32" Width="335"/>
+        <Button Content="Выбрать папку..." Command="{Binding SelectFolder}" HorizontalAlignment="Left" Margin="206,18,0,0" VerticalAlignment="Top" Height="67" Width="155"/>
+        <Label Content="{Binding DirectoryPath}" HorizontalAlignment="Left" Margin="26,144,0,0" VerticalAlignment="Top" Width="335" FontStyle="Italic" AutomationProperties.HelpText=""/>
+
+        <DataGrid x:Name="Answers" VerticalAlignment="Top"
+          ItemsSource="{Binding Answers}"
+          AutoGenerateColumns="False" CanUserResizeColumns="True" Margin="400,18,21,0" Height="333">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Запрос" Width="250" Binding="{Binding Path=Request}"/>
+                <DataGridTextColumn Header="Ответ" Width="100" Binding="{Binding Path=Answer}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="HTTP" Command="{Binding SetHttp}" HorizontalAlignment="Left" Margin="26,313,0,0" VerticalAlignment="Top" Height="38" Width="90"/>
+        <Button Content="TCP" Command="{Binding SetTcp}" HorizontalAlignment="Left" Margin="136,313,0,0" VerticalAlignment="Top" Height="38" Width="90"/>
+        <Label Content="Папка с файлами:" HorizontalAlignment="Left" Margin="26,115,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label Content="Состояние/запросы:" HorizontalAlignment="Left" Margin="26,197,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label Content="Протокол:" HorizontalAlignment="Left" Margin="21,279,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+    </Grid>
+</Window>

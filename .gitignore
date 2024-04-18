@@ -1,0 +1,17 @@
+.vs
+ServerClientApp.sln
+ClassLibrary/bin
+ClassLibrary/obj
+ClassLibrary/ClassLibrary.csproj
+Client/bin
+Client/obj
+Client/Client.csproj
+Client/Client.csproj.user
+Client/AssemblyInfo.cs
+Server/bin
+Server/obj
+Server/Server.csproj
+Server/AssemblyInfo.cs
+UnitTests/bin
+UnitTests/obj
+UnitTests/UnitTests.csproj
